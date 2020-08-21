@@ -1,0 +1,8 @@
+{cadastrar4.png, 
+excluir2.png,
+pesquisar2.png,a
+lterar2.png,
+listar2.png,
+lobo.png,
+bg_Logo1.png,
+bg_Logo2.png}: Ícones feitos por Freepik from www.flaticon.com
