@@ -1,0 +1,14 @@
+{cadastrar4.png, 
+excluir2.png,
+pesquisar2.png,
+alterar2.png,
+listar2.png,
+lobo2.png,
+lobo6.png,
+lobo7.png
+bg_Logo1.png}: Ícones feitos por Freepik de www.flaticon.com
+
+{logo-Azul-Com_Letras.png,
+logo-Azul-Sem_Letras.png,
+logo-Preto-Com_Letras.png,
+logo-Preto-Sem_Letras.png}: Montagens feitas por Gustavo Herrero Nunes - Ícones utilizados feitos por Freepik de www.flaticon.com

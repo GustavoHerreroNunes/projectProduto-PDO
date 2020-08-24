@@ -1,9 +1,17 @@
+/* Css para configurar os elementos da página principal - "menu.html" */
+
 @charset "UTF-8";
 
+img#Logo{
+    height: 43h;
+    width: 35vh;
+}
+
 nav#Menu{
-    height: 12vh;
-    width: 120vh;
-    color: black;
+    height: 17vh;
+    width: auto;
+    font-size: 125%;
+    color: rgb(119, 119, 119);
     position: absolute;
     top: 50vh;
     border: 2px;
@@ -29,6 +37,6 @@ nav#Menu li:hover{
 }
 
 img#Icone{
-    height: 65%;
-    width: 35%;
+    height: 60%;
+    width: 30%;
 }
