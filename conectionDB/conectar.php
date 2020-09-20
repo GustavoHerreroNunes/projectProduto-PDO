@@ -28,6 +28,7 @@
             $this->getInstance();
             $this->query = $query;
             $stmt = $pdo->prepare($this->query);
+            $stmt->execute();
             $pdo = null;
         }
     }
