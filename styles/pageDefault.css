@@ -1,26 +1,18 @@
-/* Css para configurar os elementos da página principal - "menu.html" */
+/*Css para configurar os itens comuns à todas as páginas do projeto*/
 
-@charset "UTF-8";
-
-img#Logo{
-    height: 43h;
-    width: 35vh;
-}
-
+/*Barra de Menu*/
 nav#Menu{
-    height: 17vh;
+    height: 14vh;
     width: auto;
     font-size: 125%;
     color: rgb(119, 119, 119);
-    position: absolute;
-    top: 50vh;
+    margin-top: 10vh;
     border: 2px;
     border-style: solid;
     border-color: rgb(80, 80, 80);
     border-left: none;
     display: flex;
 }
-
 nav#Menu li{
     height: 100%;
     width: 20%;
@@ -31,17 +23,33 @@ nav#Menu li{
     background-color: rgba(212, 212, 212, 1);
     transition-duration: 0.5s;
 }
-
 nav#Menu li:hover{
     background-color: rgba(198, 198, 198, 1);
 }
-
 nav#Menu a{
     color: rgb(119, 119, 119);
     text-decoration: none;
 }
-
 img#Icone{
-    height: 60%;
-    width: 30%;
+    height: 55%;
+    width: 25%;
+}
+img#Logo{
+    height: 100%;
+    width: 70%;
+    margin-top: -13.5%;
+}
+
+/*Conteúdo da página*/
+div#Conteudo{
+    padding-top: 16vh;
+    height: 59.5vh;
+    background-color: rgba(222, 222, 222, 0.8);
+    font-size: 3.3vh;
+}
+div#Conteudo p{
+    font-size: 2.2vh;
+}
+div#Conteudo input#textBox{
+    font-size: 2.2vh;
 }
