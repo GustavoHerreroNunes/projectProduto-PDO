@@ -28,7 +28,6 @@ nav#Menu li:hover{
 }
 nav#Menu a{
     color: rgb(119, 119, 119);
-    text-decoration: none;
 }
 img#Icone{
     height: 55%;
@@ -42,9 +41,9 @@ img#Logo{
 
 /*Conteúdo da página*/
 div#Conteudo{
-    padding-top: 16vh;
-    height: 59.5vh;
-    background-color: rgba(222, 222, 222, 0.8);
+    padding-top: 11vh;
+    height: 64.5vh;
+    background-color: rgba(200, 200, 200, 0.8);
     font-size: 3.3vh;
 }
 div#Conteudo p{
@@ -52,4 +51,17 @@ div#Conteudo p{
 }
 div#Conteudo input#textBox{
     font-size: 2.2vh;
+}
+div#Conteudo #button{
+    padding: 0.7vh;
+    border: 2px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: rgb(100, 100, 100);
+    font-size: 2.2vh;
+    color: rgb(119, 119, 119);
+    background-color:rgb(212, 212, 212);
+}
+div#Conteudo #button:hover{
+    background-color:rgb(198, 198, 198);
 }

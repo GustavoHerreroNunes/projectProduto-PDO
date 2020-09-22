@@ -45,14 +45,16 @@
                 @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);//Defindo primeiro parâmetro ($nome)
                 @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);//Definindo segundo parâmetro ($estoque)
 
+                
                 if($sql->execute() == 1){//Se a execução do comando sql ocorrer sem erros
                     return "Registro salvo com sucesso!";
                 }
 
+                $this->conn = null;
 
             }catch(PDOException $exc){//Exceção PHP ou MySQL
                 
-                echo "Erro ao salvar o registro:<br>".$exc->getMessage();
+                echo "Erro ao salvar o registro:".$exc->getMessage();
                 
             }
         }
@@ -136,8 +138,9 @@
                 }else{
 
                     return "Erro na exclusão";
-
                 }
+
+                $this->conn = null;
 
             }catch(PDOException $exc){//Exceção PHP ou MySQL
 
@@ -153,7 +156,7 @@
             try{
 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->query("select * from produto order by nome");//Selecionando todos os registros de "produto" e ordenando em ordem alfabética
+                $sql = $this->conn->prepare("select * from produto order by nome");//Selecionando todos os registros de "produto" e ordenando em ordem alfabética
                 $sql->execute();
                 return $sql->fetchAll();//Retorna uma matriz com os dados selecionados
                 $this->conn = null;

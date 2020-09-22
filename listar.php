@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="cadastrar.php">
                 <div id="Option">
                 <img id="Icone" src="assets/img/menu_icons/cadastrar4.png"/><br>
                 Cadastrar
@@ -67,7 +67,7 @@
 
             <?php
 
-                include_once 'conectionDB/produto.php';
+                include_once './conectionDB/produto.php';
                 $p = new Produto();
                 $pro_bd = $p->listar();
 
@@ -83,9 +83,9 @@
                         <?php echo $pro_mostrar[1]; ?>    &nbsp;&nbsp;&nbsp;&nbsp;
                         <?php echo $pro_mostrar[2]; 
                 }?> 
-            
+            <br><br>
             <center>
-                <button><a href="menu.html">Voltar</a></button>
+                <button id="button"><a href="menu.html">Voltar</a></button>
             </center>
             </center>
         </div>

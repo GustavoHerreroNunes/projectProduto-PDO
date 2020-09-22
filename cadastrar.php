@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="cadastrar.php">
                 <div id="Option">
                 <img id="Icone" src="assets/img/menu_icons/cadastrar4.png"/><br>
                 Cadastrar
@@ -97,12 +97,12 @@
                 extract($_POST, EXTR_OVERWRITE);
                 if(isset($btnCadas)){
 
-                    include_once 'conectionDB/produto.php';
+                    include_once './conectionDB/produto.php';
                     $pro = new Produto();
                     $pro->setNome($txbNome);
                     $pro->setEstoque($txbEstoq);
 
-                    echo "<h3><br><br>".$pro->salvar()."</h3>";
+                    echo "<h4><br><br>".$pro->salvar()."</h4>";
 
                 }
 
