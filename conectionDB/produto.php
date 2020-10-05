@@ -41,7 +41,7 @@
             try{
                 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("insert into produto values (null,?,?)");//Inserindo por código sql um novo registro, com 2 parâmetros ainda não definidos
+                $sql = $this->conn->prepare("insert into produtos values (null,?,?)");//Inserindo por código sql um novo registro, com 2 parâmetros ainda não definidos
                 @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);//Defindo primeiro parâmetro ($nome)
                 @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);//Definindo segundo parâmetro ($estoque)
 
@@ -65,7 +65,7 @@
             try{
 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("select * from produto where id = ?");//Selecionando todos os campos de produto com o id passado por parâmetro ainda não definido
+                $sql = $this->conn->prepare("select * from produtos where id = ?");//Selecionando todos os campos de produto com o id passado por parâmetro ainda não definido
                 @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);//Definindo o parâmetro
                 $sql->execute();
                 return $sql->fechAll();//Carrega uma matriz com os campos selecionados da tabela do banco de dados
@@ -84,7 +84,7 @@
             try{
             
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("update produto set nome = ?, estoque = ? where id = ?");//Atualizando os campos do registro passando parâmetros ainda não definidos
+                $sql = $this->conn->prepare("update produtos set nome = ?, estoque = ? where id = ?");//Atualizando os campos do registro passando parâmetros ainda não definidos
                 @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);//Definindo primeiro parâmetro
                 @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);//Definindo segundo parâmetro
                 @$sql->bindParam(3, $this->getId(), PDO::_PARAM_STR);//Definindo terceiro parâmetro
@@ -109,7 +109,7 @@
             try{
 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("select * from produto where nome like ?");//Selecionando todos os campos ligados ao nome passado pelo parâmetro ainda não definido
+                $sql = $this->conn->prepare("select * from produtos where nome like ?");//Selecionando todos os campos ligados ao nome passado pelo parâmetro ainda não definido
                 @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);//Definindo o parâmetro
                 $sql->execute();
                 return $sql->fetchAll();//Retorna uma matriz com os dados selecionados
@@ -128,7 +128,7 @@
             try{
 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("delete * from produto where id = ?");//Deletando o registro que tenha o id passado por parâmetro ainda não definido
+                $sql = $this->conn->prepare("delete * from produtos where id = ?");//Deletando o registro que tenha o id passado por parâmetro ainda não definido
                 @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);//Definindo o parâmetro
 
                 if($sql->execute() == 1){//Se a execução do código sql ocorrer sem erros
@@ -156,7 +156,7 @@
             try{
 
                 $this->conn = new Conectar();//Instânciando a classe Conectar
-                $sql = $this->conn->prepare("select * from produto order by nome");//Selecionando todos os registros de "produto" e ordenando em ordem alfabética
+                $sql = $this->conn->prepare("select * from produtos order by nome");//Selecionando todos os registros de "produto" e ordenando em ordem alfabética
                 $sql->execute();
                 return $sql->fetchAll();//Retorna uma matriz com os dados selecionados
                 $this->conn = null;
