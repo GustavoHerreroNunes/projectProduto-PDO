@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Wolves - Listar</title>
+        <title>Wolves - Alterar - Campos Disponíveis</title>
         <link rel="icon" href="assets/img/logo/logo-Preto-Sem_Letras.png"/>
         <link rel="stylesheet" type="text/css" href="styles/reset.css" />
         <link rel="stylesheet" type="text/css" href="styles/pageDefault.css" />
@@ -62,28 +62,70 @@
 
         <div id="Conteudo">
             <center>
-
-            <h1>Relação de Produtos Cadastrados</h1>
-
+            <h1>Aleração de Produto</h1>
+            <br>
+            
             <?php
-
+                $id = $_POST["txbId"];
+                        
                 include_once './conectionDB/produto.php';
-                $p = new Produto();
-                $pro_bd = $p->listar();
+
+                $pro1 = new Produto();
+                $pro1->setId($id);
+                $pro_bd = $pro1->alterar();
 
             ?>
 
-            <b>Id &nbsp;&nbsp;&nbsp;&nbsp; Nome &nbsp;&nbsp;&nbsp;&nbsp; Estoque</b>
+            <form name="cliente" method="POST" action="">
+                <?php
+                    foreach($pro_bd as $pro_mostrar){
+                ?>
+                <fieldset>
+                    <legend><b>Dados do Produto:</b></legend>
+                    <br>
+                    <input type="hidden" name="txbId" size="5" value='<?php echo $pro_mostrar[0] ?>'>
+                        
+                        <p>
+                            Id:
+                            <?php echo $pro_mostrar[0] ?>
+                        </p>
+                        <br>
+                        <p>
+                            Nome:
+                            <input type="text" name="txbNome" size="30" maxlength="30" value='<?php echo $pro_mostrar[1] ?>' id="textBox">
+                        </p>
+                        <br>
+                        <p>
+                            Estoque:
+                            <input type="text" name="txbEstoq" size="10" value='<?php echo $pro_mostrar[2] ?>' id="textBox">
+                        </p>
+                        <br>
+                        <input type="submit" name="btnAlterar" value="Alterar" id="button"> 
+                </fieldset>
+                    <?php 
+                    } ?>
+            </form>
 
             <?php
-                foreach($pro_bd as $pro_mostrar){
+
+                extract($_POST, EXTR_OVERWRITE);
+                if(isset($btnAlterar)){
+
+                    include_once './conectionDB/produto.php';
+                    $pro2 = new Produto();
+                    $pro2->setNome($txbNome);
+                    $pro2->setEstoque($txbEstoq);
+                    $pro2->setId($txbId);
+
+                    echo "<h4><br><br>".$pro2->alterar2()."</h4>";
+
+                    header("location:alterar1.php");
+
+                }
+
             ?>
-                    <br><br>
-                    <b> <?php echo $pro_mostrar[0]; ?></b>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $pro_mostrar[1]; ?>    &nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $pro_mostrar[2]; 
-                }?> 
-            <br><br>
+            <br>
+            <br>
             <center>
                 <button id="button"><a href="menu.html">Voltar</a></button>
             </center>

@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Wolves - Listar</title>
+        <title>Wolves - Alterar</title>
         <link rel="icon" href="assets/img/logo/logo-Preto-Sem_Letras.png"/>
         <link rel="stylesheet" type="text/css" href="styles/reset.css" />
         <link rel="stylesheet" type="text/css" href="styles/pageDefault.css" />
@@ -63,27 +63,31 @@
         <div id="Conteudo">
             <center>
 
-            <h1>Relação de Produtos Cadastrados</h1>
+            <h1>Alteração de Produto</h1>
+            <br>
+            <form name="cliente" method="POST" action="alterar2.php">
+                <fieldset>
 
-            <?php
+                    <legend><b>Informe o ID do produto:</b></legend>
+                    <br>
+                        <p>
+                            ID:
+                            <input type="number" name="txbId" size="30" min="1" maxlength="5" placeholder="Digite apenas números" id="textBox">
+                        </p>
 
-                include_once './conectionDB/produto.php';
-                $p = new Produto();
-                $pro_bd = $p->listar();
+                </fieldset>
+                <br>
+                <fieldset>
 
-            ?>
-
-            <b>Id &nbsp;&nbsp;&nbsp;&nbsp; Nome &nbsp;&nbsp;&nbsp;&nbsp; Estoque</b>
-
-            <?php
-                foreach($pro_bd as $pro_mostrar){
-            ?>
-                    <br><br>
-                    <b> <?php echo $pro_mostrar[0]; ?></b>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $pro_mostrar[1]; ?>    &nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $pro_mostrar[2]; 
-                }?> 
-            <br><br>
+                    <legend><b>Opções</b></legend>
+                    <br>
+                    <input type="submit" name="btnConsul" value="Consultar" id="button"> &nbsp;&nbsp;
+                    <input type="reset" name="btnReset" value="Limpar" onClick="document.cliente.txbNome.focus()" id="button">
+                
+                </fieldset>
+            </form>
+            <br>
+            <br>
             <center>
                 <button id="button"><a href="menu.html">Voltar</a></button>
             </center>

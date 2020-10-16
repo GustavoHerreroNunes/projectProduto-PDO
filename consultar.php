@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Wolves - Excluir</title>
+        <title>Wolves - Consultar</title>
         <link rel="icon" href="assets/img/logo/logo-Preto-Sem_Letras.png"/>
         <link rel="stylesheet" type="text/css" href="styles/reset.css" />
         <link rel="stylesheet" type="text/css" href="styles/pageDefault.css" />
@@ -63,16 +63,16 @@
         <div id="Conteudo">
             <center>
 
-            <h1>Exclusão de Produto</h1>
+            <h1>Consulta de Produtos Cadastrados</h1>
             <br>
             <form name="cliente" method="POST" action="">
                 <fieldset>
 
-                    <legend><b>Informe o ID do produto:</b></legend>
+                    <legend><b>Informe o Nome do produto:</b></legend>
                     <br>
                         <p>
-                            ID:
-                            <input type="number" name="txbId" size="30" min="1" maxlength="5" placeholder="Digite apenas números" id="textBox">
+                            Nome:
+                            <input type="text" name="txbNome" size="40" maxlength="40" placeholder="Digite o nome do produto" id="textBox">
                         </p>
 
                 </fieldset>
@@ -81,7 +81,7 @@
 
                     <legend><b>Opções</b></legend>
                     <br>
-                    <input type="submit" name="btnExcluir" value="Excluir" id="button"> &nbsp;&nbsp;
+                    <input type="submit" name="btnConsul" value="Consultar" id="button"> &nbsp;&nbsp;
                     <input type="reset" name="btnReset" value="Limpar" onClick="document.cliente.txbNome.focus()" id="button">
                 
                 </fieldset>
@@ -94,13 +94,32 @@
             <?php
 
                 extract($_POST, EXTR_OVERWRITE);
-                if(isset($btnExcluir)){
+                if(isset($btnConsul)){
 
                     include_once './conectionDB/produto.php';
                     $pro = new Produto();
-                    $pro->setId($txbId);
+                    $pro->setNome($txbNome.'%');//o '%' serve para que seja feita uma busca aproximada do nome, mostrando todos os registros em que o campo "nome" começa com o que foi digitado
 
-                    echo "<h4><br><br>".$pro->exclusao()."</h4>";
+                    $pro_bd = $pro->consultar();
+
+                    $existe = false;
+                    foreach ($pro_bd as $pro_mostrar){
+                        $existe = true;
+                        ?>
+                        <br>
+                        <b> <?php echo "ID: ".$pro_mostrar[0]; ?></b>&nbsp;&nbsp;&nbsp;
+                        <b> <?php echo "Nome: ".$pro_mostrar[1]; ?></b>&nbsp;&nbsp;&nbsp;
+                        <b> <?php echo "Estoque: ".$pro_mostrar[2]; ?></b>
+                        
+                        <?php
+                    }
+
+                    if(!$existe){
+                        ?>
+                        <b> <?php echo "ID: ".$pro_mostrar[0]; ?></b>
+
+                        <?php
+                    }
 
                 }
 

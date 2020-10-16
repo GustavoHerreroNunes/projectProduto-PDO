@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="consultar.php">
                 <div id="Option">
                 <img id="Icone" src="assets/img/menu_icons/pesquisar2.png"/><br>
                 Pesquisar
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="alterar1.php">
                 <div id="Option">
                 <img id="Icone" src="assets/img/menu_icons/alterar2.png"/><br>
                 Alterar
