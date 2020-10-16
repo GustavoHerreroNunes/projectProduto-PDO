@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="excluir.php">
                 <div id="Option">
                 <img id="Icone" src="assets/img/menu_icons/excluir2.png"/><br>
                 Excluir

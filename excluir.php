@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Wolves - Cadastrar</title>
+        <title>Wolves - Excluir</title>
         <link rel="icon" href="assets/img/logo/logo-Preto-Sem_Letras.png"/>
         <link rel="stylesheet" type="text/css" href="styles/reset.css" />
         <link rel="stylesheet" type="text/css" href="styles/pageDefault.css" />
@@ -63,21 +63,16 @@
         <div id="Conteudo">
             <center>
 
-            <h1>Cadastro de Produto</h1>
+            <h1>Exclusão de Produto</h1>
             <br>
             <form name="cliente" method="POST" action="">
                 <fieldset>
 
-                    <legend><b>Dados do Produto:</b></legend>
+                    <legend><b>Informe o ID do produto:</b></legend>
                     <br>
                         <p>
-                            Nome:
-                            <input type="text" name="txbNome" size="30" maxlength="30" placeholder="Nome do Produto" id="textBox">
-                        </p>
-                        <br>
-                        <p>
-                            Estoque:
-                            <input type="text" name="txbEstoq" size="10" placeholder="0" id="textBox">
+                            ID::
+                            <input type="number" name="txbId" size="30" min="1" maxlength="5" placeholder="Digite apenas números" id="textBox">
                         </p>
 
                 </fieldset>
@@ -86,23 +81,26 @@
 
                     <legend><b>Opções</b></legend>
                     <br>
-                    <input type="submit" name="btnCadas" value="Cadastrar" id="button"> &nbsp;&nbsp;
+                    <input type="submit" name="btnExcluir" value="Excluir" id="button"> &nbsp;&nbsp;
                     <input type="reset" name="btnReset" value="Limpar" onClick="document.cliente.txbNome.focus()" id="button">
                 
                 </fieldset>
             </form>
 
+            <br>
+
+            <legend><b>Resultado</b></legend>
+
             <?php
 
                 extract($_POST, EXTR_OVERWRITE);
-                if(isset($btnCadas)){
+                if(isset($btnExcluir)){
 
                     include_once './conectionDB/produto.php';
                     $pro = new Produto();
-                    $pro->setNome($txbNome);
-                    $pro->setEstoque($txbEstoq);
+                    $pro->setId($txbId);
 
-                    echo "<h4><br><br>".$pro->salvar()."</h4>";
+                    echo "<h4><br><br>".$pro->exclusao()."</h4>";
 
                 }
 
