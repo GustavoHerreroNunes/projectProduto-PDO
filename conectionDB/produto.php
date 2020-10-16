@@ -68,7 +68,7 @@
                 $sql = $this->conn->prepare("select * from produtos where id = ?");//Selecionando todos os campos de produto com o id passado por parâmetro ainda não definido
                 @$sql->bindParam(1, $this->getId(), PDO::PARAM_STR);//Definindo o parâmetro
                 $sql->execute();
-                return $sql->fechAll();//Carrega uma matriz com os campos selecionados da tabela do banco de dados
+                return $sql->fetchAll();//Carrega uma matriz com os campos selecionados da tabela do banco de dados
                 $this->conn = null;
 
             }catch(PDOException $exc){//Exceção PHP ou MySQL
